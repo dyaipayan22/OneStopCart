@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .nav-links {
+    @apply cursor-pointer md:my-0 my-4;
+  }
+  .btn-nav {
+    @apply flex items-center px-4 py-2 gap-2 md:border md:rounded-full md:my-0 my-4;
+  }
+
+  .sub-heading {
+    @apply font-Poppins text-base  font-normal;
+  }
+}
