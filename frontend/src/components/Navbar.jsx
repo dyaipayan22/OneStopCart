@@ -14,8 +14,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white w-full fixed shadow-sm z-[1000]">
-      <div className="container px-4 md:px-2 mx-auto flex items-center h-14 lg:h-16 justify-between">
+    <div className="bg-white w-full fixed z-[1000]">
+      <div className="container mx-auto px-4 md:px-2 flex items-center h-14 lg:h-16 justify-between ">
         <Link to="/">
           <img
             src="/logo.png"
@@ -49,12 +49,13 @@ const Navbar = () => {
               ))}
           </div>
 
-          <div className="flex flex-col p-2 gap-4 lg:flex-row lg:gap-8 lg:items-center">
+          <div className="flex flex-col p-2 gap-4 lg:flex-row lg:gap-12 lg:items-center">
             <AiOutlineShoppingCart className="w-5 h-5" />
             <FiUser className="w-5 h-5" />
           </div>
         </nav>
       </div>
+      <div className="absolute top-14 lg:top-16 w-full border-[1px]" />
     </div>
   );
 };

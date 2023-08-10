@@ -2,24 +2,23 @@
 const Input = ({
   id,
   label,
-  type,
   placeholder,
+  type,
   disabled,
   register,
   required,
   errors,
 }) => {
   return (
-    <div className=" relative flex flex-col gap-1">
-      <label className="text-md">{label}</label>
+    <div className=" relative flex flex-col ">
+      <label className="text-base font-Poppins font-medium">{label}</label>
       <input
         id={id}
-        placeholder={placeholder}
         type={type}
+        placeholder={placeholder}
         disabled={disabled}
         {...register(id, { required })}
-        className={`p-2 border-2 rounded-md outline-none disabled:opacity-70 disabled:cursor-not-allowed border-neutral-500
-        ${errors[id] ? 'focus:border-rose-400' : 'border-neutral-500'}`}
+        className={`bg-transparent outline-none focus:outline-none border-b-2 border-b-neutral-400 focus:border-b-black pb-1 active:border-b-black font-Poppins text-base font-normal`}
       />
     </div>
   );

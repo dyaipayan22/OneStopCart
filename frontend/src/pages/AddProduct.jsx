@@ -8,6 +8,7 @@ import Input from '../components/ui/Input';
 //import Container from '../components/Container';
 import Button from '../components/ui/Button';
 import { createProduct } from '../features/product/productSlice';
+import Sidebar from '../components/Sidebar';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,59 @@ const Login = () => {
 
   return (
     <>
-      <div className="w-full md:w-3/5 lg:w-3/6 xl:w-2/5 p-8 mx-auto h-full lg:h-auto md:h-auto border-b-4 bg-neutral-200/100 rounded-md shadow-lg">
+      <div className="grid grid-rows-2 grid-cols-3 w-full mx-auto">
+        <div className="flex items-center justify-between">
+          <span>Product</span>
+          <span>Orders</span>
+          <span>Users</span>
+        </div>
+      </div>
+    </>
+  );
+  /* <div className="grid grid-cols-3 ">
+          <div className="col-span-2">
+            <div className="flex flex-col gap-4 px-3 py-4">
+              <div className="flex items-center gap-2 w-full">
+                <Input
+                  id="name"
+                  label="Name"
+                  type="text"
+                  placeholder="Product Name"
+                  disabled={isLoading}
+                  register={register}
+                  errors={errors}
+                  required
+                />
+                <Input
+                  id="category"
+                  label="Category"
+                  type="text"
+                  placeholder="Product Category"
+                  disabled={isLoading}
+                  register={register}
+                  errors={errors}
+                  required
+                />
+              </div>
+
+              <Input
+                id="description"
+                label="Description"
+                type="text"
+                placeholder="Product Description"
+                disabled={isLoading}
+                register={register}
+                errors={errors}
+                required
+              />
+            </div>
+          </div>
+          <div className="col-span-1">
+            <span>Picture</span>
+          </div>
+        </div>
+      </div> */
+  /* <div className="w-full md:w-3/5 lg:w-3/6 xl:w-2/5 p-8 mx-auto h-full lg:h-auto md:h-auto border-b-4 bg-neutral-200/100 rounded-md shadow-lg">
         <div className="flex flex-col gap-2 p-3">
           <p className="font-Poppins font-semibold  text-2xl text-center">
             Add Product
@@ -101,9 +154,7 @@ const Login = () => {
         <div className="p-3">
           <Button label="Add" onClick={handleSubmit(onSubmit)} />
         </div>
-      </div>
-    </>
-  );
+      </div> */
 };
 
 export default Login;

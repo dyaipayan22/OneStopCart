@@ -71,7 +71,7 @@ export const clearCart = expressAsyncHandler(async (req, res) => {
   if (user) {
     user.cart = [];
     await user.save();
-    res.json('Cart cleared');
+    res.json(user.cart);
   } else {
     res.status(401);
     throw new Error('User does not exist');

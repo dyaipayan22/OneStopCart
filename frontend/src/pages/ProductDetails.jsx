@@ -105,7 +105,7 @@ const ProductDetails = () => {
                     onClick={onReduce}
                     className="cursor-pointer"
                   />
-                  <span className="text-base lg:text-lg font-Poppins font-normal">
+                  <span className="text-base lg:text-xl font-Poppins font-normal">
                     {quantity}
                   </span>
                   <AiOutlinePlus onClick={onAdd} className="cursor-pointer" />
@@ -134,7 +134,10 @@ const ProductDetails = () => {
                     </div>
                   ))}
                   {user ? (
-                    <div>
+                    <div className="flex flex-col mt-4 gap-2">
+                      <span className="font-Poppins font-semibold text-base lg:text-lg">
+                        Write a review
+                      </span>
                       <input
                         type="text"
                         value={rating}

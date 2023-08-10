@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import PaymentSuccess from './pages/PaymentSuccess';
 import Profile from './pages/Profile';
+import AddProduct from './pages/AddProduct';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/paymentSuccess',
         element: <PaymentSuccess />,
+      },
+      {
+        path: '/admin/addProduct',
+        element: <AddProduct />,
       },
     ],
   },

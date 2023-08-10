@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import { login } from '../features/auth/authSlice';
 import Input from '../components/ui/Input';
-//import Container from '../components/Container';
 import Button from '../components/ui/Button';
-import { registerUser } from '../features/user/userSlice';
+import { getUserProfile } from '../features/user/userSlice';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      name: '',
       email: '',
       password: '',
     },
@@ -26,27 +27,24 @@ const Signup = () => {
 
   const onSubmit = (values) => {
     setIsLoading(true);
-
-    dispatch(registerUser(values));
+    dispatch(login(values)).then(() => {
+      dispatch(getUserProfile());
+    });
   };
 
   return (
-    <>
-      <div className="w-full md:w-3/5 lg:w-3/6 xl:w-2/5 p-8 mx-auto h-full lg:h-auto md:h-auto border-b-4 bg-neutral-200/100 rounded-md shadow-lg">
-        <div className="flex flex-col gap-2 p-3">
-          <p className="font-Poppins font-semibold  text-2xl text-center">
-            Sign Up
-          </p>
-          <p className="font-Poppins font-normal text-xl text-center">
-            Welcome
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 p-3">
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-full md:w-3/5 lg:w-3/6 xl:w-2/5 p-8 mx-auto h-full lg:h-auto md:h-auto border-b-4 rounded-md shadow-lg">
+        <span className="font-Poppins font-semibold text-xl lg:text-2xl p-3">
+          Sign Up
+        </span>
+
+        <div className="flex flex-col gap-4 px-3 py-4">
           <Input
             id="name"
             label="Name"
             type="text"
-            placeholder="Enter your name"
+            placeholder="Enter your Name"
             disabled={isLoading}
             register={register}
             errors={errors}
@@ -56,7 +54,7 @@ const Signup = () => {
             id="email"
             label="Email"
             type="text"
-            placeholder="Enter your email"
+            placeholder="Enter your Email"
             disabled={isLoading}
             register={register}
             errors={errors}
@@ -72,13 +70,21 @@ const Signup = () => {
             errors={errors}
             required
           />
-          <p className="text-right pt-2">Forgot password</p>
         </div>
-        <div className="p-3">
-          <Button label="Sign In" onClick={handleSubmit(onSubmit)} />
+        <div className="flex flex-col gap-3 p-3">
+          <Button label="Sign Up" onClick={handleSubmit(onSubmit)} />
+          <div className="flex items-center w-full justify-center">
+            <span className="text-sm font-Poppins font-medium">
+              Already have an account?&nbsp;
+            </span>
+
+            <span className="text-sm font-Poppins font-medium hover:text-indigo-700">
+              <Link to="/login">Sign In</Link>
+            </span>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
