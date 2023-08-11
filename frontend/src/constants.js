@@ -1,14 +1,22 @@
-export const NavMenu = [
+export const navMenu = [
   {
-    label: 'Category',
+    id: 1,
+    label: 'Home',
     link: '/',
   },
   {
-    label: 'Deals',
+    id: 2,
+    label: 'Shop',
     link: '/',
   },
   {
-    label: 'New Launches',
+    id: 3,
+    label: 'About',
+    link: '/',
+  },
+  {
+    id: 4,
+    label: 'Contact',
     link: '/',
   },
 ];

@@ -15,6 +15,8 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { createOrder } from '../features/order/orderSlice';
 import CartProducts from '../components/CartProducts';
 import { Link } from 'react-router-dom';
+import Container from '../components/Container';
+import ProductCard from '../components/ProductCard';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -49,7 +51,7 @@ const Cart = () => {
   }, [dispatch, orderPlaced]);
 
   return (
-    <>
+    <Container>
       {loading && <p>Loading</p>}
 
       {cartItems?.length === 0 || cartItems === null ? (
@@ -57,60 +59,80 @@ const Cart = () => {
           <span className="text-2xl lg:text-3xl font-Poppins font-medium">
             Oops! No items in your cart.
           </span>
-          <div className="flex items-center gap-4">
-            <span className="text-xl lg:text-2xl font-Poppins font-normal">
-              Start Shopping
-            </span>
-            <Link to="/">
+          <Link to="/">
+            <div className="flex items-center gap-4 bg-primeColor text-white p-3 rounded-sm">
+              <span className="text-xl lg:text-2xl font-Poppins font-normal">
+                Start Shopping
+              </span>
+
               <BiShoppingBag className="w-8 h-8 cursor-pointer" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       ) : (
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="flex flex-col p-6 col-span-2 ">
-            <span className="text-xl lg:text-2xl font-Poppins font-semibold ">
-              Cart Items
+        <div className="flex flex-col w-full">
+          <span className="text-xl lg:text-4xl font-Poppins font-semibold mb-6">
+            Cart
+          </span>
+          <div className="hidden w-full md:grid grid-cols-5 bg-lightColor p-6">
+            <span className="col-span-2 font-Poppins text-lg font-semibold text-center">
+              Product
             </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Price
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Quantity
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Sub Total
+            </span>
+          </div>
+          <div className="mt-5">
             {cartItems?.map((item) => (
               <CartProducts
                 key={item.product._id}
                 product={item.product}
                 quantity={item.quantity}
-                handleRemoveItem={() => {
-                  dispatch(removeItemFromCart(item.product._id));
-                }}
               />
             ))}
-            <Button
-              label="Clear Cart"
-              onClick={() => {
-                dispatch(clearCart());
-              }}
-            />
           </div>
 
-          <div className="flex flex-col p-6">
-            <div className="flex flex-col lg:h-auto gap-4 pb-4">
-              <span className="text-xl lg:text-2xl font-Poppins font-semibold">
-                Subtotal{' '}
-                {cartItems?.reduce((acc, item) => acc + item.quantity, 0)} Items
-              </span>
-              <span className="font-Poppins text-base lg:text-lg font-medium">
-                Items Price: &#8377;{' '}
-                {cartItems
-                  ?.reduce(
+          <div className="flex flex-col w-full md:w-96 mt-10 gap-4 ">
+            <span className="font-Poppins font-semibold text-xl">
+              Cart Total
+            </span>
+            <div>
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
+                Subtotal
+                <span className="font-Poppins font-semibold tracking-wide font-titleFont">
+                  {cartItems?.reduce(
                     (acc, item) => acc + item.quantity * item.product.price,
                     0
-                  )
-                  .toFixed(2)}
-              </span>
+                  )}
+                </span>
+              </p>
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
+                Shipping Charges
+                <span className="font-Poppins font-semibold tracking-wide font-titleFont">
+                  0
+                </span>
+              </p>
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-lg px-4 font-medium">
+                Total
+                <span className="font-Poppins font-bold tracking-wide text-lg font-titleFont">
+                  {cartItems?.reduce(
+                    (acc, item) => acc + item.quantity * item.product.price,
+                    0
+                  )}
+                </span>
+              </p>
+              <Button label="Proceed to Checkout" onClick={handleCheckout} />
             </div>
-            <Button label="Proceed to Checkout" onClick={handleCheckout} />
           </div>
         </div>
       )}
-    </>
+    </Container>
   );
 };
 

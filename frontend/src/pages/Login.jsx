@@ -63,11 +63,11 @@ const Login = () => {
         <div className="flex flex-col gap-3 p-3">
           <Button label="Sign In" onClick={handleSubmit(onSubmit)} />
           <div className="flex items-center w-full justify-center">
-            <span className="text-sm font-Poppins font-medium">
+            <span className="text-base font-Poppins font-medium">
               Don't have an account?&nbsp;
             </span>
 
-            <span className="text-sm font-Poppins font-medium hover:text-indigo-700">
+            <span className="text-base font-Poppins font-medium hover:text-indigo-700">
               <Link to="/register">Sign up</Link>
             </span>
           </div>

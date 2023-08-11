@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { HiMenuAlt2 } from 'react-icons/hi';
 import { FiUser } from 'react-icons/fi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { AiOutlineClose } from 'react-icons/ai';
-import { NavMenu } from '../constants';
+import { navMenu } from '../constants';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -29,7 +30,7 @@ const Navbar = () => {
           {showNav ? (
             <AiOutlineClose className="w-5 h-5" />
           ) : (
-            <RxHamburgerMenu className="w-5 h-5" />
+            <HiMenuAlt2 className="w-5 h-5" />
           )}
         </div>
 
@@ -38,24 +39,21 @@ const Navbar = () => {
             showNav ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4 lg:w-full">
-            {NavMenu.length > 0 &&
-              NavMenu.map((menu) => (
-                <div key={menu.label} className="p-2 rounded-md">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-end lg:gap-4 lg:w-full">
+            {navMenu.length > 0 &&
+              navMenu.map((menu) => (
+                <div
+                  key={menu.label}
+                  className="sub-heading text-[#767676] hover:text-primeColor hover:font-semibold hover:underline underline-offset-[4px] decoration-[1px] md:border-r-[2px] border-r-gray-300 pr-8 pl-4"
+                >
                   <Link to={menu.link}>
-                    <span className="sub-heading">{menu.label}</span>
+                    <span>{menu.label}</span>
                   </Link>
                 </div>
               ))}
           </div>
-
-          <div className="flex flex-col p-2 gap-4 lg:flex-row lg:gap-12 lg:items-center">
-            <AiOutlineShoppingCart className="w-5 h-5" />
-            <FiUser className="w-5 h-5" />
-          </div>
         </nav>
       </div>
-      <div className="absolute top-14 lg:top-16 w-full border-[1px]" />
     </div>
   );
 };

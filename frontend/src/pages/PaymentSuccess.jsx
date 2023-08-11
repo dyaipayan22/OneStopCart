@@ -4,6 +4,8 @@ import { getCreatedOrder } from '../features/order/orderSlice';
 import { getUserProfile } from '../features/user/userSlice';
 import { clearCart } from '../features/cart/cartSlice';
 import CartProducts from '../components/CartProducts';
+import Container from '../components/Container';
+import OrderProducts from '../components/OrderProducts';
 
 const PaymentSuccess = () => {
   const dispatch = useDispatch();
@@ -24,19 +26,34 @@ const PaymentSuccess = () => {
   }, [dispatch, userInfo]);
 
   return (
-    <div className="flex flex-col">
-      <span className="font-Poppins font-semibold text-xl md:text-2xl text-center">
-        Payment successful! Your order has been placed.
-      </span>
+    <Container>
+      <div className="flex items-center w-full justify-center mb-6">
+        <span className="font-Poppins font-semibold text-xl md:text-2xl mb-6">
+          Your order has been placed !
+        </span>
+      </div>
       {!loading && currentOrder && (
-        <div className="flex flex-col">
-          <span className="text-xl lg:text-2xl font-Poppins font-semibold">
-            Order Summary
-          </span>
-          <div className="flex flex-col gap-2 w-[2/4]">
-            <span>Order ID: {currentOrder._id}</span>
-            {currentOrder.orderItems?.map((item) => (
-              <CartProducts
+        <div className="flex flex-col w-full">
+          <div className="hidden w-full md:grid grid-cols-6 bg-lightColor p-6">
+            <span className="col-span-2 font-Poppins text-lg font-semibold text-center">
+              Product
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Price
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Quantity
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Total
+            </span>
+            <span className="font-Poppins text-lg font-semibold text-center">
+              Payment Status
+            </span>
+          </div>
+          <div className="md:mt-5">
+            {currentOrder.orderItems.map((item) => (
+              <OrderProducts
                 key={item.product._id}
                 product={item.product}
                 quantity={item.quantity}
@@ -45,7 +62,7 @@ const PaymentSuccess = () => {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

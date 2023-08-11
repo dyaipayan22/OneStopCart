@@ -25,6 +25,6 @@ body,
   }
 
   .sub-heading {
-    @apply font-Poppins text-base  font-normal;
+    @apply font-Poppins text-base font-normal;
   }
 }

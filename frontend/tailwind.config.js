@@ -8,6 +8,11 @@ export default {
         Monteserrat: ['Monteserrat', 'sans-serif'],
         Roboto: ['Roboto', 'sans-serif'],
       },
+      colors: {
+        primeColor: '#262626',
+        lightText: '#6D6D6D',
+        lightColor: '#F5F5F3',
+      },
     },
   },
   plugins: [],
