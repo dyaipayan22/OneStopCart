@@ -66,7 +66,7 @@ export const updateProduct = expressAsyncHandler(async (req, res) => {
   const { name, price, description, image, brand, category, countInStock } =
     req.body;
 
-  const product = await Product.findById(req.params.id);
+  const product = await Product.findById(req.body);
 
   if (product) {
     product.name = name;
@@ -89,11 +89,12 @@ export const updateProduct = expressAsyncHandler(async (req, res) => {
 // @route   DELETE /api/products/:id
 // @access  Private/Admin
 export const deleteProduct = expressAsyncHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id);
+  const product = await Product.findById(req.body);
 
   if (product) {
-    await product.remove();
-    res.json({ message: 'Product deleted' });
+    await product.deleteOne();
+    const products = await Product.find({});
+    res.json(products);
   } else {
     res.status(404);
     throw new Error('Product not found');

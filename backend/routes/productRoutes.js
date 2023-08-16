@@ -13,10 +13,10 @@ import { verifyJWT, admin } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 router.route('/').get(getProducts).post(verifyJWT, admin, createProduct);
-
+router.route('/:id').get(getProductById);
 router
-  .route('/:id')
-  .get(getProductById)
+  .route('/')
+
   .put(verifyJWT, admin, updateProduct)
   .delete(verifyJWT, admin, deleteProduct);
 

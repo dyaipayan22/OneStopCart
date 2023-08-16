@@ -103,7 +103,7 @@ const Cart = () => {
               Cart Total
             </span>
             <div>
-              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-base md:text-lg px-4 font-medium">
                 Subtotal
                 <span className="font-Poppins font-semibold tracking-wide font-titleFont">
                   {cartItems?.reduce(
@@ -112,15 +112,15 @@ const Cart = () => {
                   )}
                 </span>
               </p>
-              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-lg px-4 font-medium">
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-1.5 text-base md:text-lg px-4 font-medium">
                 Shipping Charges
                 <span className="font-Poppins font-semibold tracking-wide font-titleFont">
                   0
                 </span>
               </p>
-              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-lg px-4 font-medium">
+              <p className="font-Poppins flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-base md:text-lg px-4 font-medium">
                 Total
-                <span className="font-Poppins font-bold tracking-wide text-lg font-titleFont">
+                <span className="font-Poppins font-bold tracking-wide text-base md:text-lg font-titleFont">
                   {cartItems?.reduce(
                     (acc, item) => acc + item.quantity * item.product.price,
                     0

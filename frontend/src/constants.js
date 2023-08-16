@@ -7,16 +7,28 @@ export const navMenu = [
   {
     id: 2,
     label: 'Shop',
-    link: '/',
+    link: '/shop',
   },
   {
     id: 3,
     label: 'About',
-    link: '/',
+    link: '/about',
   },
   {
     id: 4,
     label: 'Contact',
-    link: '/',
+    link: '/contact',
+  },
+];
+
+export const slides = [
+  {
+    url: 'bannerImgOne.webp',
+  },
+  {
+    url: 'bannerImgTwo.webp',
+  },
+  {
+    url: 'bannerImgThree.webp',
   },
 ];

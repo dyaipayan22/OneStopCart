@@ -33,6 +33,7 @@ export const getUserProfile = expressAsyncHandler(async (req, res) => {
       _id: req.user._id,
       name: req.user.name,
       email: req.user.email,
+      cart: req.user.cart,
     });
   } else {
     res.status(404);

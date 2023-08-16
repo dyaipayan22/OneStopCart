@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { HiMenuAlt2 } from 'react-icons/hi';
-import { FiUser } from 'react-icons/fi';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { AiOutlineClose } from 'react-icons/ai';
-import { navMenu } from '../constants';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+import { HiMenuAlt2 } from 'react-icons/hi';
+import { AiOutlineClose } from 'react-icons/ai';
+import { navMenu } from '../../constants';
+
+const Header = () => {
   const [showNav, setShowNav] = useState(false);
 
   const toggle = () => {
@@ -58,4 +56,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

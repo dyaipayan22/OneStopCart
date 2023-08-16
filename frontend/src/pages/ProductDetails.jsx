@@ -74,10 +74,10 @@ const ProductDetails = () => {
       {product && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6  py-5 px-10 bg-[#F5F5F3]">
           <div className="mx-auto lg:mx-0">
-            <img src={`/${product.image}`} alt={product.name} />
+            <img src={`${product.image}`} alt={product.name} />
           </div>
 
-          <div className="flex flex-col gap-6 overflow-y-auto justify-center ">
+          <div className="flex flex-col gap-6 overflow-y-auto ">
             <div>
               <p className="text-xl lg:text-2xl font-Poppins font-semibold">
                 {product.name}

@@ -18,7 +18,7 @@ const Input = ({
         placeholder={placeholder}
         disabled={disabled}
         {...register(id, { required })}
-        className={`bg-transparent outline-none focus:outline-none border-b-2 border-b-neutral-400 focus:border-b-black pb-1 active:border-b-black font-Poppins text-base font-normal`}
+        className={`bg-transparent outline-none focus:outline-none border-b-2 border-b-neutral-400 focus:border-b-black pb-1 active:border-b-black font-Poppins text-base font-normal w-full`}
       />
     </div>
   );

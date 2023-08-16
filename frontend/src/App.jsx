@@ -1,24 +1,41 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Layout from './components/Layout';
+import UserLayout from './components/Layout/UserLayout';
+import AdminLayout from './components/AdminLayout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Home from './pages/Home';
+import Shop from './pages/Shop';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import PaymentSuccess from './pages/PaymentSuccess';
 import Profile from './pages/Profile';
 import AddProduct from './pages/AddProduct';
+import Home from './pages/Home';
+import AdminProducts from './pages/AdminProducts';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <UserLayout />,
     children: [
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/shop',
+        element: <Shop />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
       },
       {
         path: ':productName/:productId',
@@ -40,8 +57,18 @@ const router = createBrowserRouter([
         path: '/paymentSuccess',
         element: <PaymentSuccess />,
       },
+    ],
+  },
+  {
+    path: '/admin',
+    element: <AdminLayout />,
+    children: [
       {
-        path: '/admin/addProduct',
+        path: '/admin/products',
+        element: <AdminProducts />,
+      },
+      {
+        path: '/admin/products/add',
         element: <AddProduct />,
       },
     ],
